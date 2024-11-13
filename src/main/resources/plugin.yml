@@ -1,0 +1,5 @@
+name: danyaoxitong
+version: '${version}'
+description: "修罗武神丹药系统"
+main: org.canghai.danyaoxitong.Danyaoxitong
+api-version: '1.20'
