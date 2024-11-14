@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.Map;
+import java.util.Arrays;
 
 public class HerbHarvestListener implements Listener {
     //  定义随机数以表示概率
@@ -77,6 +78,17 @@ public class HerbHarvestListener implements Listener {
                 if (meta != null) {
                     meta.setDisplayName(herb.getDisplayName());
                     herbItem.setItemMeta(meta);
+                    //  设置描述信息
+                    switch (herb.getQuality()) {
+                        case 1:
+                            herbItem.setLore(Arrays.asList("上品药草"));
+                            break;
+                        case 2:
+                            herbItem.setLore(Arrays.asList("仙品药草"));
+                            break;
+                        case 3:
+                            herbItem.setLore(Arrays.asList("稀世药草"));
+                    }
                 }
 
                 //  将满足条件的物品放入集合中

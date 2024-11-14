@@ -45,7 +45,7 @@ public class AlchemyListener implements Listener {
         meta.setDisplayName("点击合成");
         reinforceButton.setItemMeta(meta);
 
-        //  将按钮放置在中间位置
+        //  按钮位置
         inventory.setItem(7, reinforceButton);
     }
 
@@ -124,27 +124,28 @@ public class AlchemyListener implements Listener {
             List<List<String>> ingredients = new ArrayList<>();
             //  从界面中获取原料
             if (clickedSlot == 7) {
+                player.sendMessage("玩家点击了控件");
                 event.setCancelled(true);
                 ingredients = Arrays.stream(inventory.getContents())
-                        .limit(6)
+                        .limit(5)
                         .filter(item -> item != null && item.getType() != Material.AIR)
                         .map(ItemStack::getItemMeta)  // 获取每个物品的ItemMeta
                         .filter(meta -> meta != null && meta.hasLore())  // 过滤掉没有lore的ItemMeta
                         .map(ItemMeta::getLore)  // 获取每个物品的lore
                         .toList();
-            }
 
-            //  检查配方
-            String recipeName = alchemyCraft.checkRecipe(ingredients);
-            if (recipeName != null) {
-                //  输出随机丹药逻辑实现 todo
+                //  检查品质
+                int pillLevel = alchemyCraft.checkRecipe(ingredients, player);
+                //  调试
+                player.sendMessage(pillLevel + "");
 
-                ItemStack elixir = alchemyCraft.createElixir(recipeName);
-                player.getInventory().addItem(elixir);           //   给玩家生成的丹药
-
-                player.sendMessage("成功合成了：" + recipeName);
-            } else {
-                player.sendMessage("配方无效！");
+                if (pillLevel != 0) {
+                    ItemStack pill = alchemyCraft.createPill(pillLevel);
+                    player.getInventory().addItem(pill);           //   给玩家生成的丹药
+                    player.sendMessage("成功合成了：" + pill.getItemMeta().getDisplayName());
+                } else {
+                    player.sendMessage("配方无效！");
+                }
             }
 
         }
@@ -161,7 +162,6 @@ public class AlchemyListener implements Listener {
             inventory.setItem(4, null);
             inventory.setItem(5, null);
             inventory.setItem(0, null);
-            inventory.setItem(6, null);
             inventory.setItem(8, null);
 
         }

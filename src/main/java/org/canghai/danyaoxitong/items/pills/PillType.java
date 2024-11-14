@@ -34,7 +34,7 @@ public class PillType{
         return description;
     }
 
-    public int getquality() {
+    public int getQuality() {
         return quality;
     }
 
@@ -53,7 +53,7 @@ public class PillType{
     }
 
     //  获取加载的所有药草
-    public static Map<String, PillType> getLoadedHerbs() {
+    public static Map<String, PillType> getLoadedPills() {
         return loadedHerbs;
     }
 }
