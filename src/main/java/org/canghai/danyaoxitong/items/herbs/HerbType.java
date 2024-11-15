@@ -2,6 +2,7 @@ package org.canghai.danyaoxitong.items.herbs;
 
 import org.bukkit.Material;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.canghai.danyaoxitong.Danyaoxitong;
 
@@ -35,6 +36,19 @@ public class HerbType {
     }
 
     public int getQuality() { return quality; }
+
+    public static int getQuakityByLore(String lore) {
+        switch (lore){
+            case "上品药草":
+                return 1;
+            case "仙品药草":
+                return 2;
+            case  "稀世药草":
+                return 3;
+
+        }
+        return 0;
+    }
 
     //  从配置文件中加载药草到静态集合中
     public static void loadHerbsFromConfig(Danyaoxitong plugin) {

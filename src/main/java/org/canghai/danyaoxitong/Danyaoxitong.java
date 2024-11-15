@@ -48,10 +48,10 @@ public final class Danyaoxitong extends JavaPlugin {
     private void registerEvents() {
         AlchemyCraft alchemyCraft = new AlchemyCraft();
         NamespacedKey alchemyFurnaceKey = new NamespacedKey(this, "alchemy_furnace");
-        AlchemyListener alchemyListener = new AlchemyListener(alchemyCraft, alchemyFurnaceKey);
+        AlchemyListener alchemyListener = new AlchemyListener(this ,alchemyCraft, alchemyFurnaceKey);
 
         getServer().getPluginManager().registerEvents(alchemyListener, this);
-        getServer().getPluginManager().registerEvents(new HerbHarvestListener(), this);
+        getServer().getPluginManager().registerEvents(new HerbHarvestListener(this), this);
         getServer().getPluginManager().registerEvents(new PillUsageListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
 

@@ -29,18 +29,6 @@ public class PlayerJoinListener implements Listener {
             // 给予玩家炼丹炉方块
             player.getInventory().addItem(alchemyFurnace);
 
-            // 给玩家的创造模式库存添加药草
-            ItemStack test = new ItemStack(Material.PAPER);
-            test.getItemMeta().setDisplayName("天山雪莲");
-            test.getItemMeta().setLore(Arrays.asList("上品药草"));
-            for(int i = 0; i < 5;i++){
-                player.getInventory().addItem(test);
-                //  调试
-                player.sendMessage("玩家加入游戏");
-            }
-
-            player.getInventory().addItem(test);
-
             for (Map.Entry<String, HerbType> entry : HerbType.getLoadedHerbs().entrySet()) {
                 HerbType herb = entry.getValue();
                 ItemStack herbItem = new ItemStack(herb.getMaterial());

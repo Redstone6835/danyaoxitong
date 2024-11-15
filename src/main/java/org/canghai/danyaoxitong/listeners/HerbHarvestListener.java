@@ -1,5 +1,6 @@
 package org.canghai.danyaoxitong.listeners;
 
+import org.bukkit.plugin.java.JavaPlugin;
 import org.canghai.danyaoxitong.items.herbs.HerbType;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Ageable;
@@ -21,6 +22,7 @@ import java.util.Arrays;
 public class HerbHarvestListener implements Listener {
     //  定义随机数以表示概率
     private final Random random = new Random();
+    private final JavaPlugin plugin;
     private static final Set<Material> CROPS = Set.of(
             Material.WHEAT,               // 小麦
             Material.CARROTS,             // 胡萝卜
@@ -33,6 +35,9 @@ public class HerbHarvestListener implements Listener {
             Material.NETHER_WART,         // 下界疣
             Material.COCOA                // 可可豆
     );
+    public HerbHarvestListener(JavaPlugin plugin) {
+        this.plugin = plugin;
+    }
     //  方块破坏事件监听
     @EventHandler
     public void onCropHarvest(BlockBreakEvent event) {
@@ -59,12 +64,11 @@ public class HerbHarvestListener implements Listener {
         //  生成概率
         double chance = random.nextDouble();
 
-        String message = String.valueOf(chance);
         // 获取触发事件的玩家
         Player player = event.getPlayer();
 
-        // 发送消息给玩家(调试)
-        player.sendMessage(message);
+        // 调试（概率数据）
+        plugin.getLogger().info(player.getName()+"挖掘了药草，他的幸运数字为："+String.valueOf(chance));
         //  遍历加载的药草数据
         for (Map.Entry<String, HerbType> entry : HerbType.getLoadedHerbs().entrySet()) {
             HerbType herb = entry.getValue();
