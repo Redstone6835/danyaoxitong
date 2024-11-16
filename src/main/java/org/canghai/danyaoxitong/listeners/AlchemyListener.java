@@ -15,6 +15,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.block.Action;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
@@ -52,7 +53,8 @@ public class AlchemyListener implements Listener {
         reinforceButton.setItemMeta(meta);
 
         //  按钮位置
-        inventory.setItem(7, reinforceButton);
+        inventory.setItem(6, reinforceButton);
+        inventory.setItem(8, new ItemStack(Material.BARRIER));
     }
 
     //  给方块打上标记
@@ -129,7 +131,7 @@ public class AlchemyListener implements Listener {
             }
             List<List<String>> ingredients = new ArrayList<>();
             //  从界面中获取原料
-            if (clickedSlot == 7) {
+            if (clickedSlot == 6) {
                 plugin.getLogger().info(player.getName()+"点击了炼丹炉控件！");
                 event.setCancelled(true);
 
@@ -159,11 +161,11 @@ public class AlchemyListener implements Listener {
                         //  调试
                         plugin.getLogger().info(player.getName()+"合成了品质等级为"+list.getFirst()+"的丹药！");
 
-                        if (list.getFirst() != 0) {
+                        if (list.getFirst() != 0 && inventory.getItem(7) == null) {
                             ItemStack pill = alchemyCraft.createPill(list.getFirst());
-                            player.getInventory().addItem(pill);           //   给玩家生成的丹药
+                            event.getInventory().addItem(pill);           //   给玩家生成的丹药
                             //  每个格子消耗一个物品
-                            for (int slot = 0; slot < ingredients.size()-1; slot++) {
+                            for (int slot = 0; slot < ingredients.size(); slot++) {
                                 ItemStack item = inventory.getItem(slot);
                                 item.setAmount(item.getAmount() - 1);
                             }
@@ -196,7 +198,7 @@ public class AlchemyListener implements Listener {
                 Location dropLocation = block.getLocation().add(0.5, 1.5, 0.5); // 方块中心上方
 
                 // 遍历所有格子，将非空物品掉落到容器上方
-                for (int i = 0; i < inventory.getSize()-2; i++) {
+                for (int i = 0; i < inventory.getSize()-3; i++) {
                     ItemStack item = inventory.getItem(i);
                     if (item != null && item.getType() != Material.AIR) {
                         // 扔出物品到容器上方
