@@ -5,6 +5,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.entity.Player;
 
+import java.util.Objects;
+
 public class PillUsageListener implements Listener {
 
     @EventHandler
