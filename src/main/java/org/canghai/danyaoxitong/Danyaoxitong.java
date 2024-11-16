@@ -30,7 +30,7 @@ public final class Danyaoxitong extends JavaPlugin {
         //  注册事件
         registerEvents();
         //  注册命令
-        // registerCommands();
+        this.getCommand("alchemy").setExecutor(new AlchemyCommand());
 
     }
 
@@ -56,8 +56,5 @@ public final class Danyaoxitong extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
 
     }
-
-    //  注册命令方法
-    //  private void registerCommands() {getCommand("alchemy").setExecutor(new AlchemyCommand());}
 
 }

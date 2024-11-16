@@ -92,91 +92,91 @@ herbs:
 pills:
   superior_1:
     name: "回神丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "恢复20%生命值"
     quality: 1
   superior_2:
     name: "敏攻丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "60s内增加10%攻击力（冷却时间60s）"
     quality: 1
   superior_3:
     name: "虚甲丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "60s内伤害减免10%（冷却时间60s）"
     quality: 1
   superior_4:
     name: "化风丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "60s内移动速度增加50%（冷却时间60s）"
     quality: 1
   superior_5:
     name: "夜明丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "60s夜视"
     quality: 1
   superior_6:
     name: "抗素丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "60s抗火 水下呼吸 "
     quality: 1
   superior_7:
     name: "净心丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "清除所有buff"
     quality: 1
   superior_8:
     name: "隐修丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "隐藏当前修为"
     quality: 1
   superior_9:
     name: "重命丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "回到上一次死亡地点"
     quality: 1
   superior_10:
     name: "藏体丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "隐身60s"
     quality: 1
   celestial_1:
     name: "安魂丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "永久增加10生命值"
     quality: 2
   celestial_2:
     name: "气血丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "永久增加1攻击力"
     quality: 2
   celestial_3:
     name: "壮阳丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "永久增加1防御值"
     quality: 2
   celestial_4:
     name: "引灵丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "永久增加1灵力值"
     quality: 2
   rare_1:
     name: "还魂丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "永久增加10生命值"
     quality: 3
   rare_2:
     name: "骤气丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "永久增加1攻击力"
     quality: 3
   rare_3:
     name: "重阳丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "永久增加1防御值"
     quality: 3
   rare_4:
     name: "聚灵丹"
-    material: "PAPER"
+    material: "POTATO"
     description: "永久增加1灵力值"
     quality: 3
