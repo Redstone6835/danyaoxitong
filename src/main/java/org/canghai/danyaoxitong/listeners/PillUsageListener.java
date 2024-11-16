@@ -13,6 +13,7 @@ import org.bukkit.potion.PotionEffectTypeCategory;
 import org.canghai.danyaoxitong.api.ValueChangeHandler;
 import org.canghai.danyaoxitong.items.pills.Pills;
 
+import java.time.Duration;
 import java.util.Objects;
 
 public class PillUsageListener implements Listener {
@@ -48,12 +49,12 @@ public class PillUsageListener implements Listener {
                         // TODO
                     case "夜明丹":
                         // 60s夜视
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 60, 1));
+                        player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 60 * 20, 0));
 
                     case "抗素丹":
                         // 60s抗火、水下呼吸
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 60, 1));
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60, 1));
+                        player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 60 * 20 , 0));
+                        player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60 * 20, 0));
 
                     case "净心丹":
                         // 清除所有buff
@@ -69,7 +70,7 @@ public class PillUsageListener implements Listener {
 
                     case "藏体丹":
                         // 隐身60s
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 60, 1));
+                        player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 60 * 20, 0));
 
                     case "安魂丹":
                         // 永久增加10生命值

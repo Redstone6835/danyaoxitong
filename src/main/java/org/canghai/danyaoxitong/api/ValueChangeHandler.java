@@ -3,7 +3,7 @@ package org.canghai.danyaoxitong.api;
 import org.bukkit.entity.Player;
 
 public class ValueChangeHandler {
-    private Player player;
+    private final Player player;
 
     public void addAttack(int attack) {
         // TODO

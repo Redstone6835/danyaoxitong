@@ -3,3 +3,7 @@ version: '${version}'
 description: "修罗武神丹药系统"
 main: org.canghai.danyaoxitong.Danyaoxitong
 api-version: '1.20'
+commands:
+  alchemy:
+    description: Give custom items to players
+    usage: /alchemy <give> <random> <id/level>
