@@ -111,6 +111,5 @@ public class PillUsageListener implements Listener {
                 }
             }
         }
-        // 示例：可以添加具体的效果代码，如增加生命值等
     }
 }
